@@ -27,5 +27,13 @@ pipeline{
                 }
             }
         }
+        stage('mvn deploy'){
+            steps{
+                sshagent(['devcicd']) {
+                    sh 'scp -o StrictHostKeyChecking=no webapp/target/webapp.war ec2-user@172.31.89.197:/usr/share/tomcat/webapps'
+                }
+
+            }
+        }
     }
 }
