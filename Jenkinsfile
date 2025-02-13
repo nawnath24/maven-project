@@ -6,21 +6,22 @@ stages
         
         stage ('scm checkout')
         
-             {steps(git 'https://github.com/nawnath24/maven-project.git')}
+             {steps{git 'https://github.com/nawnath24/maven-project.git'}}
 
         stage('validate')
+
              {steps{withMaven(globalMavenSettingsConfig: '', jdk: '', maven: '', mavenSettingsConfig: '', traceability: true) {
-    sh 'mvm validate'
+             sh 'mvm validate'
 }}}
 
-      stage('compile the code')
+        stage('compile the code')
              {steps{withMaven(globalMavenSettingsConfig: '', jdk: '', maven: '', mavenSettingsConfig: '', traceability: true) {
-    sh 'mvm compile'
+             sh 'mvm compile'
 }}}
 
-      stage('package the code')
+        stage('package the code')
              {steps{withMaven(globalMavenSettingsConfig: '', jdk: '', maven: '', mavenSettingsConfig: '', traceability: true) {
-    sh 'mvm package'
+             sh 'mvm package'
 }}}
 
           
