@@ -6,7 +6,7 @@ stages
         
         stage ('scm checkout')
         
-             {steps{git 'https://github.com/nawnath24/maven-project.git'}}
+             {steps{gitgit 'https://github.com/nawnath24/maven-project.git'}}
 
         stage('validate')
 
